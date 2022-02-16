@@ -1,0 +1,13 @@
+name: final
+title: final
+username:
+account: yifandai98
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3768472
+bundleId: 4326817
+url: https://yifandai98.shinyapps.io/final/
+when: 1615391516.62014
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: index.html|styles.css
