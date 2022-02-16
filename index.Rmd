@@ -1,0 +1,53 @@
+---
+title: "index"
+author: "Yifan Dai, Chole Su, Yilin Feng"
+date: "2/20/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include = FALSE}
+## Source in the other script
+source("Aggre_Table.R")
+source("summary_info.R")
+source("map.R")
+source("chart 2.R")
+source("chart_3.R")
+# Load the `knitr` library
+library(knitr)
+```
+# Exploratory Analysis
+## Introduction 
+Suicide and beer consumption is always a serious concern in our society. However, drinking beer is not only related to a negative outcome but also represents a signifier of happiness. Therefore, we are interested in _the relationship between beer consumption and happiness score_ by a different country. Moreover, we provide two charts.  One of the charts presents the _top 20 countries of beer consumption_ and a _map_ that represents the **global suicide rate.**
+
+## Summary
+The summary information is shown below as lists. There are `r summary_info$Country` countries in **_suicide_rate_2016_** data set. The country with the **lowest suicide rate** in 2016 is `r summary_info$lowest_suicide_country`. Besides, the country that rank **#1** in happiness is `r summary_info$highest_country` with the score of `r summary_info$highest_score`. Last, we found that with the highest happiness score, the **beer consumption** is `r summary_info$beer_with_highest_score` Liter per Capita.
+
+## Table
+This table provides information on the _suicide rate, beer consumption, happiness score, and happiness rank_ by **countries**. By creating this table, it is easier for us to organize the relationship between those factors.
+
+```{r echo=FALSE, results='asis'}
+kable(suicide_2016, caption = "Table of suicide rate, happiness score, rank, and beer consumption")
+```
+
+## Chart
+Chart one is a **world map** intend to show the _suicide rate per 100,000 population_ around the world.  From the chart we can see that **Russia** has _high level of suicide rate_, and countries in global _South_ has relative **lower** suicide rate than countries in the North. 
+
+```{r echo=FALSE}
+plot(map)
+```
+
+Chart two is a **scatter plot** that shows the relationship between the _average happiness score_ and _liters of beer consumption per capita_. From the chart, we can see that there are some **weak positive association** between the x and the y variable. **Higher** beer consumption have **slight** correlation with **higher** average happiness score. 
+
+```{r echo=FALSE, warning = FALSE}
+plot(scottorplot_beer_happiness)
+```
+
+Chart three is a **bar chart** that shows the **top 20** countries with **most** _beer  consumption_. We see that **Namibia** is the country with **most** beer consumption per capita.
+
+```{r echo=FALSE}
+plot(top_20_chart)
+```
